@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- JNLP File for WaterWorks Project Estimator Applet -->
+<jnlp spec="6.0+" >
+<information>
+	<title>Project Estimator Applet</title>
+	<vendor>Katrina Yancey</vendor>
+</information>
+<security>
+	<all-permissions/>
+</security>
+<resources>
+	<!-- Application Resources -->
+	<j2se version="1.6+"
+		href="http://java.sun.com/products/autodl/j2se" />
+	<jar href="projectEstimator.jar" main="true" download="eager" />
+</resources>
+<applet-desc 
+	name="Project Estimator"
+	main-class="poolsHotTubsSpas.ProjectEstimator"
+	width="300"
+	height="300">
+</applet-desc>
+</jnlp>

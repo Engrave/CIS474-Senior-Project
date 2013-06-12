@@ -3,14 +3,18 @@ package poolsHotTubsSpas;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.text.DecimalFormat;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Pools extends JPanel {
 	/**
@@ -29,8 +33,14 @@ public class Pools extends JPanel {
 	JLabel poolResultsLabel;
 	JTextField poolResultsField;
 	JTextArea errorMessage;
+	
+	private Connection poolConnect;
+	private Statement poolStatement;
 
 	public Pools() {
+		
+		setBackground(Color.WHITE);
+		
 		poolLengthLabel = new JLabel();
 		poolLengthLabel.setText("Enter the pool's length (ft):");
 
@@ -78,6 +88,14 @@ public class Pools extends JPanel {
 		this.add(poolResultsField);
 		this.add(saveQuote);
 		this.add(errorMessage);
+		
+		try {
+			String poolConnectUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;integratedSecurity=true;databaseName=WaterWorks;";
+			poolConnect = DriverManager.getConnection(poolConnectUrl);
+		} catch (Exception e) {
+			System.err.append("Unable to find and load driver");
+			
+		}
 
 	}
 
@@ -87,7 +105,7 @@ public class Pools extends JPanel {
 		calculatePool.setMnemonic('C');
 		calculatePool.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DecimalFormat number = new DecimalFormat(",###.##");
+				DecimalFormat number = new DecimalFormat("###.##");
 				double length = 0, width = 0, depth = 0, volume;
 				String input;
 				try {
@@ -134,15 +152,15 @@ public class Pools extends JPanel {
 					errorMessage.append("Please Enter Valid Numbers!");
 					errorMessage.setVisible(true);
 				}
-
+				
 				volume = length * width * depth;
 				poolResultsField.setText(number.format(volume));
 			}
 		});
 		return calculatePool;
 	}
-	
-	public JButton clearPoolFields(){
+
+	public JButton clearPoolFields() {
 		JButton resetFields;
 		resetFields = new JButton("Reset");
 		resetFields.setMnemonic('R');
@@ -157,34 +175,34 @@ public class Pools extends JPanel {
 		});
 		return resetFields;
 	}
-	
+
 	public JButton savePoolEstimate() {
 		JButton saveEstimate;
 		saveEstimate = new JButton("Save My Estimate");
 		saveEstimate.setMnemonic('S');
 		saveEstimate.addActionListener(new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent s) {
-			FileWriter sq;
-			try {
-					sq = new FileWriter("quotes.txt", true);
-					sq.write("The customer requests a quote on a pool with the following dimensions:\n");
-					sq.write("Pool Length: " + poolLengthField.getText().toString() + " feet \n");
-					sq.write("Pool Width: " + poolWidthField.getText().toString() + " feet \n");
-					sq.write("Pool Depth: " + poolDepthField.getText().toString() + " feet \n");
-					sq.write("Pool Volume:  " + poolResultsField.getText().toString() + " cubic feet \n");
-					sq.close();
-					errorMessage.setText("Your estimate has been saved.\n" + "Someone will contact you soon with a quote.");
+			@Override
+			public void actionPerformed(ActionEvent s) {
+				double PoolW = Double.parseDouble(poolWidthField.getText());
+				double PoolL = Double.parseDouble(poolLengthField.getText());
+				double PoolV = Double.parseDouble(poolResultsField.getText());
+				double PoolD = Double.parseDouble(poolDepthField.getText());
+				try {
+					poolStatement = poolConnect.createStatement();
+					poolStatement.executeUpdate("INSERT INTO POOL (PoolV, PoolD, PoolW, PoolL) VALUES (" + 
+					"'" + PoolV + "', '" + PoolD + "', '" + PoolW + "', '" + PoolL + "'" + ")");
+					poolConnect.close();
+					errorMessage.setText("Your estimate has been saved.\n"
+							+ "Someone will contact you soon with a quote.");
 					errorMessage.setVisible(true);
-			} catch (IOException e) {
-				e.printStackTrace();
-				errorMessage.setText("Oops! There was a problem saving your quote.\n" + "Please try again later.");
-				errorMessage.setVisible(true);
+				} catch (SQLException insertException) {
+					insertException.printStackTrace();
+					errorMessage.setText("Oops! There was a problem saving your quote.\n"
+									+ "Please try again later.");
+					errorMessage.setVisible(true);
+				}
 			}
-		}
 		});
 		return saveEstimate;
 	}
-	}
-	
-
+}

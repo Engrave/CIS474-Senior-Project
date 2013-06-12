@@ -1,0 +1,34 @@
+﻿** Warnings
+     WITH CHECK | NOCHECK option for existing data check enforcement is ignored.
+     WITH CHECK | NOCHECK option for existing data check enforcement is ignored.
+     WITH CHECK | NOCHECK option for existing data check enforcement is ignored.
+     WITH CHECK | NOCHECK option for existing data check enforcement is ignored.
+     WITH CHECK | NOCHECK option for existing data check enforcement is ignored.
+     WITH CHECK | NOCHECK option for existing data check enforcement is ignored.
+
+** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[APPOINTMENT] (Table)
+       [dbo].[CLIENT] (Table)
+       [dbo].[HOT_TUB] (Table)
+       [dbo].[LOGIN_CLIENT] (Table)
+       [dbo].[POOL] (Table)
+       [dbo].[QUOTE] (Table)
+       [dbo].[FK__APPOINTME__Clien__023D5A04] (Foreign Key)
+       [dbo].[FK__HOT_TUB__QuoteID__0BC6C43E] (Foreign Key)
+       [dbo].[FK__LOGIN_CLI__Clien__7F60ED59] (Foreign Key)
+       [dbo].[FK__POOL__QuoteID__08EA5793] (Foreign Key)
+       [dbo].[FK__QUOTE__ApptID__060DEAE8] (Foreign Key)
+       [dbo].[FK__QUOTE__ClientID__0519C6AF] (Foreign Key)
+
+** Supporting actions

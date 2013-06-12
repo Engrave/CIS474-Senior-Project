@@ -14,9 +14,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.text.DecimalFormat;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class HotTubs extends JPanel implements ActionListener,
 		ComponentListener {
@@ -38,8 +42,13 @@ public class HotTubs extends JPanel implements ActionListener,
 	JLabel tubVolumeLabel;
 	JTextField tubVolumeField;
 	JTextArea tubError;
+	private Connection tubConnect;
+	private Statement tubStatement;
 
 	public HotTubs() {
+		
+		setBackground(Color.WHITE);
+		
 		roundTub = new JRadioButton("Round Tub");
 		roundTub.setSelected(false);
 		roundTub.addActionListener(this);
@@ -67,15 +76,15 @@ public class HotTubs extends JPanel implements ActionListener,
 		calcTub = getTubVolume();
 		calcTub.setBackground(Color.BLUE);
 		calcTub.setForeground(Color.WHITE);
-		
+
 		clearTub = clearTubFields();
 		clearTub.setBackground(Color.BLUE);
 		clearTub.setForeground(Color.WHITE);
-				
+
 		saveQuote = saveTubEstimate();
 		saveQuote.setBackground(Color.BLUE);
 		saveQuote.setForeground(Color.WHITE);
-		
+
 		ExitButton eButton = new ExitButton();
 
 		tubVolumeLabel = new JLabel();
@@ -101,6 +110,15 @@ public class HotTubs extends JPanel implements ActionListener,
 		this.add(tubVolumeField);
 		this.add(saveQuote);
 		this.add(tubError);
+		
+		
+		try {
+			String tubConnectUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;integratedSecurity=true;databaseName=WaterWorks;";
+			tubConnect = DriverManager.getConnection(tubConnectUrl);
+		} catch (Exception e) {
+			System.err.append("Unable to find and load driver");
+			
+		}
 
 	}
 
@@ -124,8 +142,6 @@ public class HotTubs extends JPanel implements ActionListener,
 		public void changedUpdate(DocumentEvent l) {
 		}
 	}
-	
-	
 
 	@Override
 	public void actionPerformed(ActionEvent tub) {
@@ -146,6 +162,7 @@ public class HotTubs extends JPanel implements ActionListener,
 			tubError.setVisible(false);
 		}
 	}
+	
 
 	public JButton getTubVolume() {
 		JButton calculateTub;
@@ -154,7 +171,7 @@ public class HotTubs extends JPanel implements ActionListener,
 		calculateTub.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ct) {
-				DecimalFormat number = new DecimalFormat(",###.##");
+				DecimalFormat number = new DecimalFormat("###.##");
 				double length = 0, width = 0, depth = 0, volume;
 				String input;
 
@@ -201,7 +218,7 @@ public class HotTubs extends JPanel implements ActionListener,
 					tubError.append("Please Enter Valid Numbers!");
 					tubError.setVisible(true);
 				}
-
+				
 				volume = (Math.PI * ((length * width) * (length * width)))
 						* depth;
 				tubVolumeField.setText(number.format(volume));
@@ -210,8 +227,8 @@ public class HotTubs extends JPanel implements ActionListener,
 		});
 		return calculateTub;
 	}
-	
-	public JButton clearTubFields(){
+
+	public JButton clearTubFields() {
 		JButton resetFields;
 		resetFields = new JButton("Reset");
 		resetFields.setMnemonic('R');
@@ -227,35 +244,36 @@ public class HotTubs extends JPanel implements ActionListener,
 		});
 		return resetFields;
 	}
-	
+
 	public JButton saveTubEstimate() {
 		JButton saveEstimate;
 		saveEstimate = new JButton("Save My Estimate");
 		saveEstimate.setMnemonic('S');
 		saveEstimate.addActionListener(new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent s) {
-			FileWriter sq;
-			try {
-					sq = new FileWriter("quotes.txt", true);
-					sq.write("The customer requests a quote on a hot tub with the following dimensions:\n");
-					sq.write("Tub Length: " + tubLengthField.getText().toString() + " feet \n");
-					sq.write("Tub Width: " + tubWidthField.getText().toString() + " feet \n");
-					sq.write("Tub Depth: " + tubDepthField.getText().toString() + " feet \n");
-					sq.write("Tub Volume:  " + tubVolumeField.getText().toString() + " cubic feet \n");
-					sq.close();
-					tubError.setText("Your estimate has been saved.\n" + "Someone will contact you soon with a quote.");
+			@Override
+			public void actionPerformed(ActionEvent s) {
+				double TubW = Double.parseDouble(tubWidthField.getText());
+				double TubL = Double.parseDouble(tubLengthField.getText());
+				double TubV = Double.parseDouble(tubVolumeField.getText());
+				double TubD = Double.parseDouble(tubDepthField.getText());
+				try {
+					tubStatement = tubConnect.createStatement();
+					tubStatement.executeUpdate("INSERT INTO HOT_TUB (TubV, TubD, TubW, TubL) VALUES (" + 
+					"'" + TubV + "', '" + TubD + "', '" + TubW + "', '" + TubL + "'" + ")");
+					tubConnect.close();
+					tubError.setText("Your estimate has been saved.\n"
+							+ "Someone will contact you soon with a quote.");
 					tubError.setVisible(true);
-			} catch (IOException e) {
-				e.printStackTrace();
-				tubError.setText("Oops! There was a problem saving your\n" + "quote. Please try again later.");
-				tubError.setVisible(true);
+				} catch (SQLException insertException) {
+					insertException.printStackTrace();
+					tubError.setText("Oops! There was a problem saving your\n"
+							+ "quote. Please try again later.");
+					tubError.setVisible(true);
+				}
 			}
-		}
 		});
 		return saveEstimate;
 	}
-			
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

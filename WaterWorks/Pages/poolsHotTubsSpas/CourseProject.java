@@ -1,20 +1,22 @@
 package poolsHotTubsSpas;
 
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import java.awt.Color;
 
-public class CourseProject extends JPanel {
-	public CourseProject() {
+import javax.swing.JFrame;
 
-		setName("Water Works Project Estimator");
-
-		JTabbedPane tabs = new JTabbedPane();
-		tabs.addTab("Pools", new Pools());
-		tabs.addTab("Hot Tubs", new HotTubs());
-		setSize(300, 300);
-		setVisible(true);
-		tabs.setBackground(Color.BLUE);
+public class CourseProject {
+	public static void main(String[] args)
+	{
+		ProjectEstimator applet = new ProjectEstimator();
+		applet.init();
+		applet.start();
+		
+		JFrame window = new JFrame("WaterWorks Project Estimator");
+		window.setContentPane(applet);
+		window.setSize(300, 300);
+		window.setBackground(Color.WHITE);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setVisible(true);
 	}
 
 }

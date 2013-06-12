@@ -60,9 +60,13 @@
      <div id="PE-Content">
    <div id = "PE">
    <h1>Project Estimator</h1>
-  <applet code="poolsHotTubsSpas.ProjectEstimator" alt="projectEstimator" width="300" height="275" archive="projectEstimator.jar" title="Project Estimator">
-  <param name="permissions" value="sandbox" />
-</applet>
+   <script src="http://www.java.com/js/deployJava.js"></script>
+   <script>
+       var attributes = { width: 300, height: 300 };
+       var parameters = { jnlp_href: 'ProjectEstimator.jnlp' };
+       deployJava.runApplet ( attributes, parameters, '1.6');
+   </script>
+
    </div>   
   
 </div>

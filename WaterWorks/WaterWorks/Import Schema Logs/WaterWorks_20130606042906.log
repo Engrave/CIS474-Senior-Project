@@ -1,0 +1,59 @@
+06-Jun-13 12:29:06	This log contains information about the import schema operation into project 'WaterWorks' on computer 'HP-LEARNINGLAB' by user 'Miss Katrina'.
+06-Jun-13 12:29:06	Import of database schema has started.
+06-Jun-13 12:29:14	Gathering database options
+06-Jun-13 12:29:14	Gathering users
+06-Jun-13 12:29:14	Gathering roles
+06-Jun-13 12:29:14	Gathering application roles
+06-Jun-13 12:29:14	Gathering role memberships
+06-Jun-13 12:29:14	Gathering filegroups
+06-Jun-13 12:29:14	Gathering full-text catalogs
+06-Jun-13 12:29:14	Gathering assemblies
+06-Jun-13 12:29:14	Gathering certificates
+06-Jun-13 12:29:14	Gathering asymmetric keys
+06-Jun-13 12:29:14	Gathering symmetric keys
+06-Jun-13 12:29:14	Gathering encrypted symmetric keys
+06-Jun-13 12:29:14	Gathering schemas
+06-Jun-13 12:29:14	Gathering XML schema collections
+06-Jun-13 12:29:14	Gathering user-defined data types
+06-Jun-13 12:29:14	Gathering user-defined types
+06-Jun-13 12:29:14	Gathering partition functions
+06-Jun-13 12:29:14	Gathering partition schemes
+06-Jun-13 12:29:14	Gathering functions
+06-Jun-13 12:29:14	Gathering encrypted functions
+06-Jun-13 12:29:14	Gathering aggregates
+06-Jun-13 12:29:14	Gathering procedures
+06-Jun-13 12:29:14	Gathering encrypted procedures
+06-Jun-13 12:29:14	Gathering tables
+06-Jun-13 12:29:14	Gathering primary keys
+06-Jun-13 12:29:14	Gathering unique constraints
+06-Jun-13 12:29:14	Gathering foreign keys
+06-Jun-13 12:29:14	Gathering default constraints
+06-Jun-13 12:29:14	Gathering check constraints
+06-Jun-13 12:29:14	Gathering views
+06-Jun-13 12:29:14	Gathering encrypted views
+06-Jun-13 12:29:14	Gathering indexes
+06-Jun-13 12:29:14	Gathering statistics
+06-Jun-13 12:29:14	Gathering full-text indexes
+06-Jun-13 12:29:14	Gathering XML indexes
+06-Jun-13 12:29:14	Gathering encrypted triggers
+06-Jun-13 12:29:14	Gathering triggers
+06-Jun-13 12:29:14	Gathering encrypted and clr ddl triggers
+06-Jun-13 12:29:14	Gathering ddl triggers
+06-Jun-13 12:29:14	Gathering synonyms
+06-Jun-13 12:29:14	Gathering defaults
+06-Jun-13 12:29:14	Gathering data constraint uddt bindings
+06-Jun-13 12:29:14	Gathering rules
+06-Jun-13 12:29:14	Gathering data constraint uddt bindings
+06-Jun-13 12:29:14	Gathering message types
+06-Jun-13 12:29:14	Gathering queues
+06-Jun-13 12:29:14	Gathering contracts
+06-Jun-13 12:29:14	Gathering services
+06-Jun-13 12:29:14	Gathering event notifications
+06-Jun-13 12:29:14	Gathering remote service bindings
+06-Jun-13 12:29:14	Gathering signatures
+06-Jun-13 12:29:14	Gathering extended properties
+06-Jun-13 12:29:14	Gathering credentials
+06-Jun-13 12:29:14	Gathering logins
+06-Jun-13 12:29:17	Finished importing database.
+06-Jun-13 12:29:17	A summary of the import was saved to the following location: C:\Users\Miss Katrina\Documents\GitHub\CIS474-Senior-Project\WaterWorks\WaterWorks\Import Schema Logs\WaterWorks_20130606042906.log
+06-Jun-13 12:29:17	Click Finish to continue...

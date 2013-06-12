@@ -1,0 +1,9 @@
+C:\Users\Miss Katrina\Documents\GitHub\CIS474-Senior-Project\WaterWorks\WaterWorks\bin\Debug\WaterWorks.dacpac
+C:\Users\Miss Katrina\Documents\GitHub\CIS474-Senior-Project\WaterWorks\WaterWorks\obj\Debug\WaterWorks.dll
+C:\Users\Miss Katrina\Documents\GitHub\CIS474-Senior-Project\WaterWorks\WaterWorks\obj\Debug\WaterWorks.pdb
+C:\Users\Miss Katrina\Documents\GitHub\CIS474-Senior-Project\WaterWorks\WaterWorks\bin\Debug\WaterWorks.dll
+C:\Users\Miss Katrina\Documents\GitHub\CIS474-Senior-Project\WaterWorks\WaterWorks\bin\Debug\WaterWorks.pdb
+C:\Users\Miss Katrina\Documents\GitHub\CIS474-Senior-Project\WaterWorks\WaterWorks\obj\Debug\Model.xml
+C:\Users\Miss Katrina\Documents\GitHub\CIS474-Senior-Project\WaterWorks\WaterWorks\obj\Debug\refactor.xml
+C:\Users\Miss Katrina\Documents\GitHub\CIS474-Senior-Project\WaterWorks\WaterWorks\obj\Debug\postdeploy.sql
+C:\Users\Miss Katrina\Documents\GitHub\CIS474-Senior-Project\WaterWorks\WaterWorks\obj\Debug\predeploy.sql
