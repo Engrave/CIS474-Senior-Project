@@ -5,20 +5,20 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WaterWorks", ".", "{E0ADC78
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/WaterWorks"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\GitHub\CIS474-Senior-Project\WaterWorks\"
+		Debug.AspNetCompiler.PhysicalPath = "..\WaterWorks\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WaterWorks\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/WaterWorks"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\GitHub\CIS474-Senior-Project\WaterWorks\"
+		Release.AspNetCompiler.PhysicalPath = "..\WaterWorks\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WaterWorks\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "11956"
+		VWDPort = "19133"
 	EndProjectSection
 EndProject
 Global

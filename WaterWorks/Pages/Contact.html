@@ -1,52 +1,58 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/Waterworks Template.dwt" codeOutsideHTMLIsLocked="false" -->
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <!-- InstanceBeginEditable name="doctitle" -->
 <head>
 <title>Project Estimator</title>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../Styles/Master.css"/>
+<!-- This script allows javascript scripts to run DO NOT DELETE -->
+<script src="../Scripts/jquery-2.0.2.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".logo").click(function () {
+            window.location = $(this).find("a").attr("href");
+            return false;
+        });
+
+    });
+</script>
 </head>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
 
 
-<body id="body">
+<body>
 <!-- InstanceBeginEditable name="Editable" -->
-<div class = "general-wrapper">
-  <div id = "header-wrapper" class="nocontent">
-    <div id = "header-logo-container"> <a href= "HomePage.html" title="HomePage" id="ww-logo" style="display: block;"></a></div>
-    <div id = "menu-container">
-      <div id ="search-wrapper">
-        <div id ="search-left"></div>
+<header>
+<div class="logo"><a href="HomePage.html"></a></div>
+    <div class="main-nav">
+      <div class="search">
         <form action = "/Search" method="get">
-          <input type = "text" name="c" id="search-field" value="value" autocomplete="off" style = "width:43px;" />
+          <input type = "text" placeholder="Search..." autocomplete="off" />
         </form>
-        <div id = "search-right"></div>
       </div>
-      <ul id = "main-menu" class ="black-menu" style="min-height: 0px; height: 12px;">
-        <li style="style""width: 73px;"> <a  href= "HomePage.html" title="Home">Home</a> </li>
+      <nav class="main-menu">
+      <ul>
+        <li> <a  href= "HomePage.html" title="Home">Home</a> </li>
         <li> <a  href= "Portfolio.html" title="Portfolio">Portfolio</a> </li>
         <li> <a  href= "ProjectEstimator.aspx" title="Project Estimator">Project Estimator</a> </li>
         <li> <a  href= "CustomerAccount.aspx" title="Customer Account">Customer Account</a> </li>
         <li> <a  href= "EmployeeLogin.aspx" title="Customers &amp; Community">Employee Login</a> </li>
       </ul>
+      </nav>
     </div>
-  </div>
-</div>
-<div class="general-wrapper" id="content-general-wrapper">
-  <div class ="ContactContent-wrapper">
-    <div id="breadcrumb-wrapper">
-      <div id="breadcrumb"> Featured Projects </div>
-    </div>
-    <div id="Contact-wrapper">
-      <div id="Contact-content">
-        <div id="ContactInner-Content"> 
-        <h2>
-        <span> WE WOULD LOVE TO HEAR FROM YOU! </span>
-        </h2>
+    </header>
+
+    <div class="breadcrumb-wrapper">
+      <div class="breadcrumb"> Featured Projects </div>
+    </div> 
+    <div class ="content-wrapper">
+    <div class="contact">
+        <hr />
+        <br />
         <p> 
         Whether you're a home owner looking for a pool to be build at your house or a corporate entity 
         that wants to have an awesome pool for all of your employees to enjoy. We are eager to discover how we can help 
@@ -57,24 +63,17 @@
         We can't wait to hear from you!
         </p>
         
-      <div id ="Form">
-      
-            </div>
-        
+
+        <p>******INSERT CONTACT FORM HERE********</p>
         </div>
-      </div>
+        </div>
     
       <div class ="spacer" style="height:40px;"> </div>
-    </div>
-    <div id ="footer-wrapper" class="footer-wrapper">
-      <div id ="footer-menu-wrapper"> <a href="SiteMap.html" class="footer-link" id="site-map-link">Site Map</a> <a href="../Pages/Contact.html" class="footer-link" id="contact-link">Contact</a> </div>
-      <div id ="footer-about-events-wrapper">
-        <div class="expandable-div expandable-div-footer"> <a href ="AboutUs.html" class="aboutus-button">About Us </a> </div>
-        <div class="expandable-div expandable-div-footer"> <a href ="Sitemap.html" class="aboutus-button"> </a> </div>
-      </div>
-    </div>
-  </div>
-</div>
+      <footer>
+      <div class="footer-right"> <a href="SiteMap.html">Site Map</a>  &nbsp;&copy;<p>2013 WaterWorks Pool Construction</p> </div>
+      <div class="footer-left"><a href ="AboutUs.html">About Us</a> <a href="Contact.html">Contact</a></div>
+ </footer>
+
 <!-- InstanceEndEditable -->
 </body>
 <!-- InstanceEnd --></html>
